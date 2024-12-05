@@ -1,9 +1,8 @@
-# Create your models here.
-from django.db import models
+from djongo import models
 from django.utils import timezone
 
 class Recibo(models.Model):
-    user = models.ForeignKey('auth.User', on_delete=models.CASCADE)
+    user = models.CharField(max_length=100)
     amount = models.DecimalField(max_digits=10, decimal_places=2)
     payment_date = models.DateTimeField(default=timezone.now)
     transaction_id = models.CharField(max_length=100, unique=True)
